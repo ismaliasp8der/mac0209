@@ -15,12 +15,17 @@
 % -------------------------------------------------
 
 \title{MAC0209 --- Modelagem e Simulação}
-\subtitle{Exercício-Programa (EP) --- Título do EP}
-\author{Grupo G? \\[4pt]
-Aluno 1 \\ 
-Aluno 2 \\ 
-Aluno 3}
-\institute{Bacharelado em Ciência da Computação \\ IME -- USP}
+\subtitle{Exercício-Programa 1 --- \textit{Floats} e Precisão}
+\author[Grupo Plutão]{Grupo Plutão \\[4pt]
+Guilherme França Carvalho \\
+Ismália Alves Santos Ziemer \\
+João Victor Bispo do Nascimento \\
+Leonardo Heidi Almeida Murakami \\
+Luis Renato Ferraz Natil Martins \\
+Murilo Freitas Yonashiro Coelho \\
+Vítor Gonçalves Serra \\
+Vitor Wallace de Moraes Alves }
+\institute[BCC IME-USP]{Bacharelado em Ciência da Computação \\ IME -- USP}
 \date{\today}
 
 % -------------------------------------------------
@@ -39,7 +44,8 @@ Aluno 3}
 \textbf{Contexto do curso}
 
 \begin{itemize}
-    \item Assunto tratado na última aula.
+    \item Primeira aula, foi apresentada a inicial do curso e alguns dos assuntos que serão tratados.
+    \item Erros de precisão em cálculos com float podem levar a resultados inesperados, o que \\deve ser tratado para evitar erros na saída da simulação.
 \end{itemize}
 
 \vspace{0.5cm}
@@ -47,7 +53,7 @@ Aluno 3}
 \textbf{Objetivo do EP}
 
 \begin{itemize}
-    \item Descrever aqui qual problema o exercício resolve.
+    \item Esse EP teve como foco verificar o funcionamento das váriaveis do formato "float" na computação e seus níveis de precisão através de testes feitos na linguagem de programação Python.
 \end{itemize}
 
 \end{frame}
@@ -60,8 +66,8 @@ Aluno 3}
 \textbf{Conceitos e implementação}
 
 \begin{itemize}
-    \item Descrição dos conceitos estudados.
-    \item Descrição do experimento realizado.
+    \item Representação de números reais em computadores (float seguindo a IEEE-754).
+    \item Foram realizados testes para verificar a precisão dos números de ponto flutuante e o resultado de operações realizadas com tais números.
 \end{itemize}
 
 \end{frame}
@@ -74,8 +80,8 @@ Aluno 3}
 \textbf{Resultados}
 
 \begin{itemize}
-    \item Principais resultados obtidos.
-    \item Interpretação do comportamento observado.
+    \item Comparação direta é propensa a erros, operações iguais em 32 bits e 64 bits podem ter resultados distintos, variações menores que o erro do ponto flutuante podem ser ignoradas pelo programa.
+    \item O padrão IEEE-754 usado para representação de números em ponto flutuante gera imprecisão devido ao espaço limitado para tentar expressar números "ilimitados" (dízimas decimais).
 \end{itemize}
 
 \end{frame}
