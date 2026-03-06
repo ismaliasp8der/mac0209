@@ -84,7 +84,7 @@ Vitor Wallace de Moraes Alves }
         $x(t)$
     \item Método de Euler: uso de um sistema de $N$ EDOs para solucionar uma EDO
         de ordem $N$, equações da forma $x(t + \Delta t) = x(t) + \Delta t
-        \frac{dx(t)}{dt}$
+        \frac{dx(t)}{dt}$ para $\Delta t$ suficientemente pequeno
     \item Implementação dos métodos analítico e numérico de Euler para solucionar uma EDO
     \item Escolha dos parâmetros $a=2, v_0=-1, x_0=0, \Delta t=0.01$
 
@@ -101,8 +101,8 @@ Vitor Wallace de Moraes Alves }
 
 \begin{itemize}
     \item O erro, diferença entre o resultado dos métodos analítico e de Euler,
-        diminui conforme $\Delta t$ diminui, até que surgem os erros de
-        arredondamento
+        diminui conforme $\Delta t$ diminui. Mas para $\Delta t$ muito pequeno 
+        surgem erros de floating point que diminuem a precisão do cálculo
     \item Para calcular $x(t)$ pelo método de Euler, é necessário calcular os
         resultados sequencialmente, enquanto pelo método analítico podemos
         calcular $x(t)$ diretamente
