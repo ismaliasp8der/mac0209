@@ -44,8 +44,18 @@ Vitor Wallace de Moraes Alves }
 \textbf{Contexto do curso}
 
 \begin{itemize}
-    \item Primeira aula, foi apresentada a inicial do curso e alguns dos assuntos que serão tratados.
-    \item Erros de precisão em cálculos com float podem levar a resultados inesperados, o que \\deve ser tratado para evitar erros na saída da simulação.
+    \item Dados são discretizados quando processados pelo computador
+    \begin{itemize}
+        \item Não é possível calcular no contínuo - processo de amostragem
+            \begin{equation}
+                x[n] = x(n\Delta t), n \in \mathbb{Z}
+            \end{equation}
+        \item Resultados e parâmetros são arrendondados - processo de quantização
+            \begin{equation}
+                \overline x[n] = Q(x[n]) \quad \text{(Q tem saída discreta)}
+            \end{equation}
+    \end{itemize}
+    \item Laboratório: Exemplos com funções seno, log, arcotangente
 \end{itemize}
 
 \vspace{0.5cm}
@@ -53,7 +63,10 @@ Vitor Wallace de Moraes Alves }
 \textbf{Objetivo do EP}
 
 \begin{itemize}
-    \item Esse EP teve como foco verificar o funcionamento das váriaveis do formato "float" na computação e seus níveis de precisão através de testes feitos na linguagem de programação Python.
+    \item Entender \textbf{problema inverso}, determinar paramêtros
+        desconhecidos a partir de observações do fenômeno
+    \item Comparar os métodos analítico e numérico para solucionar uma EDO (equação diferencial ordinária)
+    \item Entender como os dados são discretizados (amostragem e quantização)
 \end{itemize}
 
 \end{frame}
@@ -66,8 +79,14 @@ Vitor Wallace de Moraes Alves }
 \textbf{Conceitos e implementação}
 
 \begin{itemize}
-    \item Representação de números reais em computadores (float seguindo a IEEE-754).
-    \item Foram realizados testes para verificar a precisão dos números de ponto flutuante e o resultado de operações realizadas com tais números.
+    \item Método analítico: integração da EDO para obter a função da posição
+        $x(t)$
+    \item Método de Euler: uso de um sistema de $N$ EDOs para solucionar uma EDO
+        de ordem $N$, equações da forma $x(t + \Delta t) = x(t) + \Delta t
+        \frac{dx(t)}{dt}$
+    \item Implementação dos métodos analítico e numérico de Euler para solucionar uma EDO
+    \item Escolha dos parâmetros $a=2, v_0=-1, x_0=0, \Delta t=0.01$
+
 \end{itemize}
 
 \end{frame}
@@ -80,8 +99,19 @@ Vitor Wallace de Moraes Alves }
 \textbf{Resultados}
 
 \begin{itemize}
-    \item Comparação direta é propensa a erros, operações iguais em 32 bits e 64 bits podem ter resultados distintos, variações menores que o erro do ponto flutuante podem ser ignoradas pelo programa.
-    \item O padrão IEEE-754 usado para representação de números em ponto flutuante gera imprecisão devido ao espaço limitado para tentar expressar números "ilimitados" (dízimas decimais).
+    \item O erro, diferença entre o resultado dos métodos analítico e de Euler,
+        diminui conforme $\Delta t$ diminui, até que surgem os erros de
+        arredondamento
+    \item Para calcular $x(t)$ pelo método de Euler, é necessário calcular os
+        resultados sequencialmente, enquanto pelo método analítico podemos
+        calcular $x(t)$ diretamente
+    \begin{figure}[b]
+        \includegraphics[width=4cm]{images/plot_pos.png}
+        \includegraphics[width=4cm]{images/plot_vel.png}
+        \includegraphics[width=4cm]{images/plot_erro-de-amostragem.jpeg}
+        \caption{$a=2, v_0=-1, x_0=0, \Delta t=0.01 \quad\quad \Delta t \in [1;2^{-26}]$}
+    \end{figure}
+
 \end{itemize}
 
 \end{frame}
