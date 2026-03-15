@@ -1,0 +1,122 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+% Tema simples e limpo
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+
+\graphicspath{{./imagens/}}
+
+% -------------------------------------------------
+% INFORMAÇÕES DO EP (OS ALUNOS DEVEM EDITAR)
+% -------------------------------------------------
+
+\title{MAC0209 --- Modelagem e Simulação}
+\subtitle{Exercício-Programa 3 --- Voo de Drones}
+\author[Grupo Plutão]{Grupo Plutão \\[4pt]
+Guilherme França Carvalho \\
+Ismália Alves Santos Ziemer \\
+João Victor Bispo do Nascimento \\
+Leonardo Heidi Almeida Murakami \\
+Luis Renato Ferraz Natil Martins \\
+Murilo Freitas Yonashiro Coelho \\
+Vítor Gonçalves Serra \\
+Vitor Wallace de Moraes Alves }
+\institute[BCC IME-USP]{Bacharelado em Ciência da Computação \\ IME -- USP}
+\date{\today}
+
+% -------------------------------------------------
+
+\begin{document}
+
+% =================================================
+% SLIDE 1
+% =================================================
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Contexto e Objetivo do EP}
+
+\textbf{Contexto do curso}
+
+\begin{itemize}
+    \item Diferentes abordagens de modelagem e simulação
+    \item Primeiros modelos determinísticos: movimento 1D
+    \item Problema inverso e método de Euler
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Objetivo do EP}
+
+\begin{itemize}
+    \item Modelagem e Simulação de Voo de drones
+    \item Verificar como amostragem e quantização influenciam os resultados
+    \item Comparar as soluções analítica e de Euler
+\end{itemize}
+
+\end{frame}
+
+% =================================================
+% SLIDE 2
+% =================================================
+\begin{frame}{Trabalho Realizado}
+
+\textbf{Conceitos e implementação}
+
+\begin{itemize}
+    \item O voo do drone é dividido em três partes, cada um com suas
+        equações
+    \item Parâmetros desconhecidos: $a_0, v_1, t_2$.
+    \item As equações são obtidas a partir de um pouco de cálculo e
+        transformações
+        \begin{itemize}
+            \item Fase 1: \begin{equation}
+                    v(t) = a_0 t, \quad
+                    x(t) = \frac12 a_0 t^2, \quad
+                    t_1 = \frac{v_1}{a_0}.
+                \end{equation}
+            \item Fase 2:
+                \begin{equation}
+                    v(t) = v_1, \quad
+                    x(t) = v_1 \left( t - \frac{t_1}2 \right).
+                \end{equation}
+            \item Fase 3:
+                \begin{equation}
+                    v(t) = -a_0 (t - t_2) + v_1, \quad
+                    x(t) = -\frac{a_0}2 (t-t_2)^2 + v_1 \left( t - \frac{t_1}2 \right), \quad
+                    t_3 = t_1 + t_2.
+                \end{equation}
+        \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+% =================================================
+% SLIDE 3
+% =================================================
+\begin{frame}{Resultados e Conclusões}
+
+\textbf{Resultados}
+
+\begin{itemize}
+    \item Principais resultados obtidos.
+    \item Interpretação do comportamento observado.
+\end{itemize}
+
+\begin{figure}[b]
+        \includegraphics[width=4cm]{x.png}
+        \includegraphics[width=4cm]{v.png}
+        \includegraphics[width=4cm]{a.png}
+        \caption{$a_0=2, v_1=10, n = 49$}
+    \end{figure}
+
+\end{frame}
+
+\end{document}
