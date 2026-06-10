@@ -46,7 +46,9 @@ Vitor Wallace de Moraes Alves }
 \textbf{Contexto do curso}
 
 \begin{itemize}
-    \item Assunto tratado na última aula.
+    \item Modelos multi-dimensionais
+    \item Sistemas caóticos
+    \item Sinais contínuos e sistemas
 \end{itemize}
 
 \vspace{0.5cm}
@@ -54,7 +56,8 @@ Vitor Wallace de Moraes Alves }
 \textbf{Objetivo do EP}
 
 \begin{itemize}
-    \item Descrever aqui qual problema o exercício resolve.
+    \item Estudar e simular sistemas discretos dinâmicos de forma simplificada
+    \item Estudar a função de modelos logísticos (mapa logístico)
 \end{itemize}
 
 \end{frame}
@@ -67,8 +70,14 @@ Vitor Wallace de Moraes Alves }
 \textbf{Conceitos e implementação}
 
 \begin{itemize}
-    \item Descrição dos conceitos estudados.
-    \item Descrição do experimento realizado.
+    \item Modelos dinâmicos discretos podem ser descritos por uma função recursiva:
+    \begin{equation}
+    P_{n+1} = P_n(a-bP_n),
+    \end{equation}
+    \item Sendo b um termo não linear, que representa fatores limitantes externos. No trabalho realizado foi implementado a forma normalizada dessa função, descrita por:
+    \begin{equation}
+        x_{n+1} = rx_n(1-x_n),x\in[0,1],r\in[0,4]
+    \end{equation}
 \end{itemize}
 
 \end{frame}
@@ -81,8 +90,12 @@ Vitor Wallace de Moraes Alves }
 \textbf{Resultados}
 
 \begin{itemize}
-    \item Principais resultados obtidos.
-    \item Interpretação do comportamento observado.
+    \item $r\in[0,3]$ a função converge, $r\in[3,1+\sqrt{6}]$ a função diverge mas se mantém entre 2 pontos, $r\in[1+\sqrt{6},4]$ o número de pontos fixos aumenta progressivamente (sistema caótico)
+    \begin{figure}[b]
+        \includegraphics[width=4.5cm]{converge.png}
+        \includegraphics[width=4.5cm]{diverge.png}
+        \includegraphics[width=4.5cm]{bifurca.png}
+    \end{figure}
 \end{itemize}
 
 \end{frame}
